@@ -1,23 +1,33 @@
+import Character from '../basic';
+import Bowman from '../characterTypes/bowman';
+import Swordsman from '../characterTypes/swordsman';
+import Magician from '../characterTypes/magician';
+import Daemon from '../characterTypes/daemon';
+import Undead from '../characterTypes/undead';
+import Zombie from '../characterTypes/zombie';
 
-import Character, {Bowman, Swordsman, Magician, Daemon, Undead, Zombie} from '../basic';
+/*
+import Character, {
+  Bowman, Swordsman, Magician, Daemon, Undead, Zombie,
+} from '../basic';
+*/
 
-test('name_length<2', ()=> {
-  function newObj() {return new Character('a')};
+test('name_length<2', () => {
+  function newObj() { return new Character('a'); }
   expect(newObj).toThrowError('некорректная длина имени');
-  
 });
 
-test('name_length>10', ()=> {
-  function newObj() {return new Character('aaaaaaaaaaaaaaaaaaaaaaaaa')}
+test('name_length>10', () => {
+  function newObj() { return new Character('aaaaaaaaaaaaaaaaaaaaaaaaa'); }
   expect(newObj).toThrowError('некорректная длина имени');
 });
 
-test('2<name_length<10', ()=> {
+test('2<name_length<10', () => {
   const newObj = new Character('aaa');
   expect(newObj).toEqual({
     name: 'aaa',
     health: 100,
-    level: 1
+    level: 1,
   });
 });
 
@@ -30,28 +40,28 @@ test('levelUp()&health>0', () => {
   expect(newObj.health).toBe(100);
   expect(newObj.level).toBe(2);
   expect(newObj.attack).toBeCloseTo(12);
-  expect(newObj.defence).toBeCloseTo(12); 
+  expect(newObj.defence).toBeCloseTo(12);
 });
 
 test('levelUp()&health<=0', () => {
   const newObj = new Character('aaa');
   newObj.health = 0;
-  function levelUpTest() {return newObj.levelUp();}  
-  expect(levelUpTest).toThrowError('character is died!'); 
+  function levelUpTest() { return newObj.levelUp(); }
+  expect(levelUpTest).toThrowError('character is died!');
 });
 
-test('damage()&health>0', () =>{
+test('damage()&health>0', () => {
   const newObj = new Character('aaa');
   newObj.defence = 10;
   newObj.damage(10);
-  expect(newObj.health).toBeCloseTo(91); 
+  expect(newObj.health).toBeCloseTo(91);
 });
 
 test('damage()&health<=0', () => {
   const newObj = new Character('aaa');
   newObj.health = -5;
-  function damageTest() {return newObj.damage(10);}  
-  expect(damageTest).toThrowError('character is died!'); 
+  function damageTest() { return newObj.damage(10); }
+  expect(damageTest).toThrowError('character is died!');
 });
 
 test('create_new_Bowman', () => {
@@ -60,10 +70,10 @@ test('create_new_Bowman', () => {
     name: 'aaa',
     health: 100,
     level: 1,
-    type:'Bowman',
+    type: 'Bowman',
     attack: 25,
-    defence: 25
-  })
+    defence: 25,
+  });
 });
 
 test('create_new_Swordsman', () => {
@@ -72,10 +82,10 @@ test('create_new_Swordsman', () => {
     name: 'aaa',
     health: 100,
     level: 1,
-    type:'Swordsman',
+    type: 'Swordsman',
     attack: 40,
-    defence: 10
-  })
+    defence: 10,
+  });
 });
 
 test('create_new_Magician', () => {
@@ -84,10 +94,10 @@ test('create_new_Magician', () => {
     name: 'aaa',
     health: 100,
     level: 1,
-    type:'Magician',
+    type: 'Magician',
     attack: 10,
-    defence: 40
-  })
+    defence: 40,
+  });
 });
 
 test('create_new_Daemon', () => {
@@ -96,10 +106,10 @@ test('create_new_Daemon', () => {
     name: 'aaa',
     health: 100,
     level: 1,
-    type:'Daemon',
+    type: 'Daemon',
     attack: 10,
-    defence: 40
-  })
+    defence: 40,
+  });
 });
 
 test('create_new_Undead', () => {
@@ -108,10 +118,10 @@ test('create_new_Undead', () => {
     name: 'aaa',
     health: 100,
     level: 1,
-    type:'Undead',
+    type: 'Undead',
     attack: 25,
-    defence: 25
-  })
+    defence: 25,
+  });
 });
 
 test('create_new_Zombie', () => {
@@ -120,8 +130,8 @@ test('create_new_Zombie', () => {
     name: 'aaa',
     health: 100,
     level: 1,
-    type:'Zombie',
+    type: 'Zombie',
     attack: 40,
-    defence: 10
-  })
+    defence: 10,
+  });
 });
