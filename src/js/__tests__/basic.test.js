@@ -1,16 +1,10 @@
-import Character from '../basic';
+import Character from '../characterTypes/basic';
 import Bowman from '../characterTypes/bowman';
 import Swordsman from '../characterTypes/swordsman';
 import Magician from '../characterTypes/magician';
 import Daemon from '../characterTypes/daemon';
 import Undead from '../characterTypes/undead';
 import Zombie from '../characterTypes/zombie';
-
-/*
-import Character, {
-  Bowman, Swordsman, Magician, Daemon, Undead, Zombie,
-} from '../basic';
-*/
 
 test('name_length<2', () => {
   function newObj() { return new Character('a'); }

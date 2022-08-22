@@ -1,4 +1,4 @@
-import Character from '../basic';
+import Character from './basic';
 
 export default class Zombie extends Character {
   constructor(name) {
